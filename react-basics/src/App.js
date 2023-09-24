@@ -5,7 +5,8 @@ function App() {
   //this is how component is called into A
   return <div className="App">
     <User name="Siddhant" age={21} email="sid@gmail.com"/>
-    <User /> 
+    <Jobs salary={2700000} position="Senior SDE" company="Amazon"/>
+    <Jobs salary={1100000} position="SDE" company="Google" />
   </div>;
 }
 
@@ -35,6 +36,14 @@ const User = (props) =>{
   }
 
 */
+
+const Jobs = (props) =>{
+  return (
+    <div>
+      <h2>{props.salary} | {props.position} | {props.company} </h2>
+    </div>
+  )
+}
 
 
 
