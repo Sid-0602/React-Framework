@@ -1,9 +1,9 @@
-import './App.css';
+import styles from "./App.module.css";
 
 function App() {
 
   //this is how component is called into A
-  return <div className="App">
+  return <div className={styles.App}>
     <User name="Siddhant" age={21} email="sid@gmail.com"/>
     <Jobs salary={2700000} position="Senior SDE" company="Amazon"/>
     <Jobs salary={1100000} position="SDE" company="Google" />
@@ -36,14 +36,19 @@ const User = (props) =>{
   }
 
 */
-
 const Jobs = (props) =>{
   return (
-    <div>
+    <div className={styles.name}>
       <h2>{props.salary} | {props.position} | {props.company} </h2>
     </div>
   )
 }
+
+//Conditional rendering in React: 
+/*
+
+
+*/
 
 
 
