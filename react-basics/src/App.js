@@ -7,6 +7,11 @@ function App() {
     <User name="Siddhant" age={21} email="sid@gmail.com"/>
     <Jobs salary={2700000} position="Senior SDE" company="Amazon"/>
     <Jobs salary={1100000} position="SDE" company="Google" />
+    <div> 
+      <h2>Conditional Rendering</h2>
+      <Age />
+    </div>
+    <Color />
   </div>;
 }
 
@@ -23,6 +28,28 @@ const User = (props) =>{
       <h2>{props.age}</h2>
       <h2>{props.email}</h2>
     </div>
+  )
+}
+
+//Conditional rendering in React: 
+/*
+It is a concept of rendering the components in a React application 
+based on certain condition either true or false. This changes the display when conditions are set.
+*/
+
+const Age = () =>{
+  const age= 20;
+  if(age>18){
+    return <h3>Legal</h3>
+  }else{
+    return <h3>Minor</h3>
+  }
+}
+
+const Color = () =>{
+  const isRed = true;
+  return (
+    <h2 style={{color: isRed ? "red" : "green",backgroundColor: isRed ? "yellow" : "pink"}}>This has color</h2>
   )
 }
 
@@ -44,11 +71,7 @@ const Jobs = (props) =>{
   )
 }
 
-//Conditional rendering in React: 
-/*
 
-
-*/
 
 
 
