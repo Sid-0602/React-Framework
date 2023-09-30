@@ -1,19 +1,11 @@
 import styles from "./App.module.css";
 import { Users } from "./components/Users.js";
-import { Planets } from "./components/Planets.js";
 
 
 function App() {
   const users = [
     {name: "Elon", age:46},
     {name: "Jeff", age:50}
-  ];
-  const planets = [
-    {name: "Mars", isGasPlanet: "false"},
-    {name: "earth", isGasPlanet: "false"},
-    {name: "Jupiter", isGasPlanet: "true"},
-    {name: "Saturn", isGasPlanet: "true"},
-    {name: "Neptune and Uranus", isGasPlanet: "true"}
   ];
   //this is how component is called into main App function.
   return (<div className={styles.App}>
@@ -32,12 +24,6 @@ function App() {
           <Users name = {user.name} age={user.age}/>
         )
       })}
-    <h1 style={{color:"Red"}}>This is Planet components list</h1>
-    {planets.map((planet,key)=>{
-      return (
-        <Planets name = {planet.name} isGasPlanet = {planet.isGasPlanet} />
-      )
-    })};
   </div> )
 }
 
