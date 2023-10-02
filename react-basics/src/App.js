@@ -1,6 +1,6 @@
 import styles from "./App.module.css";
 import { Users } from "./components/Users.js";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 function App() {
@@ -31,6 +31,18 @@ function App() {
 
   //hide/show text: 
   let [showText, setForm] = useState(true);
+  let [btext,setBtext] = useState("");
+
+  //useEffect hook: (this is used in component mounting, unmounting.)
+  useEffect(()=>{
+    console.log("Component Mounted!!");
+
+    return () =>{
+      console.log("Component Unmounted!");
+    }
+  },[inputVal]); //we can specify for what we need to use UseEffect.
+
+  //
 
   //this is how component is called into main App function.
   return (<div className={styles.App}>
@@ -66,7 +78,13 @@ function App() {
       <button onClick={()=>{
         setForm(!showText);
       }}>Click</button>
-      {showText === true && <h3>Hello there!</h3>}
+      {showText === true && 
+        <div>
+          <input onClick={(event)=>{
+            setBtext(event.target.value);
+          }}></input>
+          <h1>{btext}</h1>
+        </div>}
     </div>
   </div> )
 }
