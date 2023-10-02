@@ -53,13 +53,26 @@ function App() {
 
   //fetch data using Axios library: 
   const [Catfact,setCatfact] = useState("");
-  //we use useEffect to stop the api hits run indefenitely:
-  useEffect(()=>{
+
+  const fetchCatFact = () =>{
     Axios.get("https://catfact.ninja/fact").then((res)=>{
     setCatfact(res.data.fact);
-  });
+    });
+  };
+  //we use useEffect to stop the api hits run indefenitely:
+  useEffect(()=>{
+    fetchCatFact(); //function call.
   },[]);
 
+  //fetch age data: 
+  const [name,setName] = useState("");
+  const [predictedAge, setPredictedAge] = useState(0);
+  const fetchAgeData = ()=>{
+    Axios.get(`https://api.agify.io/?name=${name}`).then((res)=>{
+      setPredictedAge(res.data.age);
+      console.log(res.data);
+    })
+  }
   //this is how component is called into main App function.
   return (<div className={styles.App}>
     <User name="Siddhant" age={21} email="sid@gmail.com"/>
@@ -106,9 +119,19 @@ function App() {
 
     <div>
       <h2>Click to generate a Random Cat Fact!</h2>
-      <button >CAT-FACT</button>
+      <button onClick={fetchCatFact}>CAT-FACT</button>
       <p>{Catfact}</p>
     </div>
+    <div>
+      <h2>Click here to predict age!</h2>
+      <input placeholder="Your name.." 
+      onChange={(event)=>{
+        setName(event.target.value);
+      }}></input><button onClick={fetchAgeData}>Submit</button>
+      <h3>Your predicted Age: {predictedAge}</h3>
+    </div>
+      
+  
   </div> )
 }
 
