@@ -1,6 +1,7 @@
 import styles from "./App.module.css";
 import { Users } from "./components/Users.js";
 import { useState, useEffect } from "react";
+import Axios from "axios";
 
 
 function App() {
@@ -42,7 +43,22 @@ function App() {
     }
   },[inputVal]); //we can specify for what we need to use UseEffect.
 
-  //
+  //fetch data from API:
+  /*
+  fetch("https://catfact.ninja/fact")
+    .then((res)=> res.json())
+    .then((data) =>{
+      console.log(data);
+    }); */
+
+  //fetch data using Axios library: 
+  const [Catfact,setCatfact] = useState("");
+  //we use useEffect to stop the api hits run indefenitely:
+  useEffect(()=>{
+    Axios.get("https://catfact.ninja/fact").then((res)=>{
+    setCatfact(res.data.fact);
+  });
+  },[]);
 
   //this is how component is called into main App function.
   return (<div className={styles.App}>
@@ -85,6 +101,13 @@ function App() {
           }}></input>
           <h1>{btext}</h1>
         </div>}
+    </div>
+    
+
+    <div>
+      <h2>Click to generate a Random Cat Fact!</h2>
+      <button >CAT-FACT</button>
+      <p>{Catfact}</p>
     </div>
   </div> )
 }
