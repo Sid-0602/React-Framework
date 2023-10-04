@@ -59,7 +59,7 @@ function App() {
     setCatfact(res.data.fact);
     });
   };
-  //we use useEffect to stop the api hits run indefenitely:
+  //we use useEffect to stop the api hits run indefinitely:
   useEffect(()=>{
     fetchCatFact(); //function call.
   },[]);
