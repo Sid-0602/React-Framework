@@ -1,9 +1,9 @@
 import {Link} from 'react-router-dom';
 
 export const Navbar = () =>{
-    <div className='App'>
-        <Link to="/">Home</Link> 
-        <Link to="/menu">Menu</Link>
-        <Link to="/contact">Contacts</Link>
-    </div>
+    return(<div className='App'>
+        <span><Link to="/">Home</Link>  </span> 
+        <span><Link to="/profile">Profile</Link>  </span>
+        <span><Link to="/contact">Contacts</Link>  </span>
+    </div>)
 }
