@@ -18,7 +18,7 @@ export const Home = (props) =>{
     return (
     <div className="App">
         <h1> This is home page for user : {username}</h1> <p>CAT FACT: {data?.fact}</p>
-        <button onClick={refetch}>Get Another Fact!</button>
+        <button onClick={refetch}>Refresh the Fact!</button>
     </div>
     );
 }
