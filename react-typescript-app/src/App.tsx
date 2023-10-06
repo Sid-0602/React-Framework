@@ -1,8 +1,19 @@
 import React from 'react';
 import './App.css';
+import { Person, Country } from './components/Person';
 
 function App() {
-  return (<h1 className='App'>React with TS!</h1>)
+  return (
+    <div className='App'>
+      <Person 
+      name="Siddhant J"
+      email= "sidbnjadhav@gmail.com"
+      age={21}
+      isMarried = {false}
+      friends = {["Vaish","Sahil","Siddharth"]}
+      country={Country.India}/>
+    </div>
+  );
 }
 
 export default App;
