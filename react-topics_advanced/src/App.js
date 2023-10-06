@@ -4,6 +4,7 @@ import { Home } from './pages/Home';
 import { Profile } from './pages/Profile';
 import { Contact } from './pages/Contact';
 import { Navbar } from './pages/Navbar';
+import { CustomHooks } from './pages/CustomHook';
 import { useState, createContext } from 'react';
 import { Query, QueryClient,QueryClientProvider } from '@tanstack/react-query';
 
@@ -25,6 +26,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/profile' element={<Profile />} />
         <Route path='/contact' element={<Contact />} />
+        <Route path='/customHooks' element={<CustomHooks />} />
         <Route path='*' element={<h1>404! Page not found!!</h1>} />
       </Routes>
     </Router>
