@@ -7,6 +7,7 @@ import { Navbar } from './pages/Navbar';
 import { CustomHooks } from './pages/CustomHook';
 import { useState, createContext } from 'react';
 import { Query, QueryClient,QueryClientProvider } from '@tanstack/react-query';
+import { Person } from './pages/Person';
 
 //creating and using context is used to eliminate usage of props to parse data into components.
 export const AppContext = createContext();
@@ -27,6 +28,12 @@ function App() {
         <Route path='/profile' element={<Profile />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/customHooks' element={<CustomHooks />} />
+        <Route path='/props-types' element={<Person 
+        name="Siddhant J"
+        email= "sidbnjadhav@gmail.com"
+        age={21}
+        isMarried = {false}
+        friends = {["Vaish","Sahil","Siddharth"]}/>} />
         <Route path='*' element={<h1>404! Page not found!!</h1>} />
       </Routes>
     </Router>
